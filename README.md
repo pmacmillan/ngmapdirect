@@ -1,4 +1,4 @@
 Angularjs Map & Directions 
 ===========
 
-Angularjs Google Maps Directions Directive 
+Angularjs Google Maps & Directions Directive 
