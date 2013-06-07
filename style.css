@@ -1,0 +1,13 @@
+#theMap {
+    width:855px;
+    height:600px;
+    background:#ccc;
+    margin: 5px 0;
+}
+.mapContainer {
+    width:500px;
+    margin:5px;
+}
+img {
+    max-width: none;
+}
