@@ -9,6 +9,8 @@ Angularjs Google Maps & Directions Directive
 
   Stable: ` <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>`
   
+  --or--
+  
   Unstable: `<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>`
   
   Please refer to the following [**url**](http://goo.gl/zNXqU) for version(stability) discrepancies.
@@ -56,7 +58,7 @@ If you do not want this side effect, you can wrap the `<map></map>` element with
 
 ```
 <div ng-app="mapComponent">
-	<map><map>
+	<map></map>
 </div>
 ```
 
