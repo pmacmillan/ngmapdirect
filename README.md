@@ -23,6 +23,8 @@ Angularjs Google Maps & Directions Directive
 **Optional Dependencies:**
 + **Zurb Foundation**
 
+   Used in simple styling of map and directions.
+
   `<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/4.1.6/css/foundation.min.css"  />`
 
 
@@ -106,3 +108,8 @@ Along with an initial zoom level of 18 and
 if a user were to click on the marker the info window would appear to display Philly.
 
 Any options omitted will simply default to the data described above.
+
+
+**Todo**
++ Add more options.
++ Maybe create a service as directive feeder.
