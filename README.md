@@ -3,6 +3,10 @@ Angularjs Map & Directions
 
 Angularjs Google Maps & Directions Directive 
 
+This is used when you need a map and/or direction in one area.
+
+For independant map & directions take a look at the twin repo at [**npmapdirectindie**](https://github.com/davidchase/ngmapdirectindie)
+
 
 **Required Dependencies for Component:**
 + **Angularjs**
