@@ -17,6 +17,7 @@ component.directive('map', function (templateUrl) {
     mapObj = {
         restrict: 'EAC',
         scope: {
+        origin: '@',
             destination: '@',
             markerContent: '@',
             zoom: '=',
@@ -75,6 +76,10 @@ component.directive('map', function (templateUrl) {
 
                 directionsDisplay.setPanel(document.getElementById('directionsList')); // again need to use angular element thats ugly otherwise.
             };
+
+            scope.$watch('origin', function() {
+                scope.getDirections();
+            });
 
             scope.clearDirections = function () {
                 scope.init();
