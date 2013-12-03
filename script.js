@@ -4,7 +4,7 @@ var component = angular.module('mapComponent', []);
 
 component.value('templateUrl', 'map.html');
 
-component.directive('map', function (templateUrl) {
+component.directive('map', [ 'templateUrl', function (templateUrl) {
     'use strict';
     var directionsDisplay = new google.maps.DirectionsRenderer(),
         directionsService = new google.maps.DirectionsService(),
@@ -96,4 +96,4 @@ component.directive('map', function (templateUrl) {
 
 
 
-});
+}]);
