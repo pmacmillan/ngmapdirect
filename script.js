@@ -17,7 +17,7 @@ component.directive('map', function (templateUrl) {
     mapObj = {
         restrict: 'EAC',
         scope: {
-        origin: '@',
+            origin: '@',
             destination: '@',
             markerContent: '@',
             zoom: '=',
