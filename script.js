@@ -1,3 +1,4 @@
+// vim: et:ts=4:sw=4
 /*global google:false */
 var component = angular.module('mapComponent', []);
 
