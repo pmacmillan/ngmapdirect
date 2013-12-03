@@ -39,8 +39,9 @@ component.directive('map', [ 'templateUrl', function (templateUrl) {
                 geocoder.geocode({
                     address: scope.endPoint
                 }, function (results, status) {
-                    var location = results[0].geometry.location;
+                    var location;
                     if (status === google.maps.GeocoderStatus.OK) {
+                        location = results[0].geometry.location;
                         map.setCenter(location);
                         marker = new google.maps.Marker({
                             map: map,
