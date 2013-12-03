@@ -1,7 +1,9 @@
 /*global google:false */
 var component = angular.module('mapComponent', []);
 
-component.directive('map', function () {
+component.value('templateUrl', 'map.html');
+
+component.directive('map', function (templateUrl) {
     'use strict';
     var directionsDisplay = new google.maps.DirectionsRenderer(),
         directionsService = new google.maps.DirectionsService(),
@@ -21,7 +23,7 @@ component.directive('map', function () {
             directions: '@'
         },
         replace: true,
-        templateUrl: 'map.html',
+        templateUrl: templateUrl,
         link: function (scope, element) {
             scope.init = function () {
                 var mapOptions = {
