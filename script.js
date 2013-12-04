@@ -2,9 +2,26 @@
 /*global google:false */
 var component = angular.module('mapComponent', []);
 
-component.value('templateUrl', 'map.html');
+component.provider('MapConfig', [function () {
+    this.options = {
+        templateUrl: 'map.html',
+        destination: '1600 Amphitheatre Parkway, Santa Clara County, CA',
+        defaultMarkerContent: 'Google HQ'
+    };
 
-component.directive('map', [ 'templateUrl', function (templateUrl) {
+    this.$get = [
+        function () {
+            var service = {
+                options: this.options
+            };
+
+            return service;
+        }
+    ];
+}]);
+
+component.directive('map', [ 'MapConfig', function (MapConfig) {
+
     'use strict';
     var directionsDisplay = new google.maps.DirectionsRenderer(),
         directionsService = new google.maps.DirectionsService(),
@@ -25,7 +42,7 @@ component.directive('map', [ 'templateUrl', function (templateUrl) {
             directions: '@'
         },
         replace: true,
-        templateUrl: templateUrl,
+        templateUrl: MapConfig.options.templateUrl,
         link: function (scope, element) {
             scope.init = function () {
                 var mapOptions = {
@@ -34,7 +51,7 @@ component.directive('map', [ 'templateUrl', function (templateUrl) {
                     streetViewControl: false
                 };
                 map = new google.maps.Map(document.getElementById('theMap'), mapOptions); // todo: use angular-element :)      
-                scope.endPoint = scope.destination !== undefined ? scope.destination : '1600 Amphitheatre Parkway, Santa Clara County, CA';
+                scope.endPoint = scope.destination !== undefined ? scope.destination : MapConfig.options.destination;
 
                 geocoder.geocode({
                     address: scope.endPoint
@@ -48,7 +65,7 @@ component.directive('map', [ 'templateUrl', function (templateUrl) {
                             position: location,
                             animation: google.maps.Animation.DROP
                         });
-                        infowindow = new google.maps.InfoWindow({content: scope.markerContent !== undefined ? scope.markerContent : 'Google HQ'});
+                        infowindow = new google.maps.InfoWindow({content: scope.markerContent !== undefined ? scope.markerContent : MapConfig.options.defaultMarkerContent });
                         google.maps.event.addListener(marker, 'click', function () {
                             return infowindow.open(map, marker);
                         });
