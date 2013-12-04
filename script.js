@@ -66,7 +66,7 @@ component.directive('map', [ 'templateUrl', function (templateUrl) {
 
             scope.getDirections = function () {
                 var request = {
-                    origin: scope.origin,
+                    origin: scope.origin || '',
                     destination: scope.endPoint,
                     travelMode: google.maps.DirectionsTravelMode.DRIVING
                 };
